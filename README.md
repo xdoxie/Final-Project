@@ -11,6 +11,10 @@ Notifications should track in real time to figure out how much time has passed s
 
 Create a Form that takes in a contact and sets the amount of times they should be calling them per week, month, or year or the amount of time spent with on the phone with a contact each week, month, or year.
 
-
 # Optional:
 Track the patterns of calls when they are keeping up with their family well and send a nice notification that says they have been doing a good job.
+
+# Useful Documentation: 
+https://developer.android.com/reference/kotlin/android/provider/ContactsContract.Contacts
+https://developer.android.com/reference/kotlin/android/telephony/PhoneNumberUtils
+https://developer.android.com/training/notify-user/build-notification

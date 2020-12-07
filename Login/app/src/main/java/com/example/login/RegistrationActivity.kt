@@ -8,18 +8,21 @@ import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 
 class RegistrationActivity : AppCompatActivity() {
     private var emailTV: EditText? = null
     private var passwordTV: EditText? = null
     private var regBtn: Button? = null
     private var progressBar: ProgressBar? = null
-    //private var validator = Validators()
+    private var validator = Validators()
+    private var mAuth: FirebaseAuth? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
 
+        mAuth = FirebaseAuth.getInstance()
         emailTV = findViewById(R.id.email)
         passwordTV = findViewById(R.id.password)
         regBtn = findViewById(R.id.register)
@@ -34,30 +37,24 @@ class RegistrationActivity : AppCompatActivity() {
         val email: String = emailTV!!.text.toString()
         val password: String = passwordTV!!.text.toString()
 
-        val intent = Intent(this@RegistrationActivity, LoginActivity::class.java)
-        startActivity(intent)
-
-/*        if (!validator.validEmail(email)) {
+       if (!validator.validEmail(email)) {
             Toast.makeText(applicationContext, "Please enter a valid email...", Toast.LENGTH_LONG).show()
             return
         }
-        if (!validator.validPassword(password)) {
-            Toast.makeText(applicationContext, "Please enter a valid password!", Toast.LENGTH_LONG).show()
-            return
-        }
+
 
         mAuth!!.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    Toast.makeText(applicationContext, "Registration successful!", Toast.LENGTH_LONG).show()
+                    Toast.makeText(applicationContext, "congrats you have made a registration!", Toast.LENGTH_LONG).show()
                     progressBar!!.visibility = View.GONE
 
                     val intent = Intent(this@RegistrationActivity, LoginActivity::class.java)
                     startActivity(intent)
                 } else {
-                    Toast.makeText(applicationContext, "Registration failed! Please try again later", Toast.LENGTH_LONG).show()
+                    Toast.makeText(applicationContext, "registration has failed :(", Toast.LENGTH_LONG).show()
                     progressBar!!.visibility = View.GONE
                 }
-            }*/
+            }
     }
 }

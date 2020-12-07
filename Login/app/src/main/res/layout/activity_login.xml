@@ -24,7 +24,7 @@
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Passowrd"
+        android:hint="Password"
         android:inputType="textPassword"
         android:importantForAutofill="no" />
 
@@ -33,6 +33,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Login" />
+
+    <Button
+        android:id="@+id/register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="register" />
 
     <ProgressBar
         android:id="@+id/progressBar"

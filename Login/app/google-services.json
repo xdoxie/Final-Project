@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "702473456619",
+    "project_id": "callyourmother-66956",
+    "storage_bucket": "callyourmother-66956.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:702473456619:android:e79d309e94f29fd07fa7ae",
+        "android_client_info": {
+          "package_name": "com.example.login"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "702473456619-jiufbmqs70urng8anj269lli7d2giif0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.login",
+            "certificate_hash": "f9338f156b8e8eec9419524537eb9d088a298735"
+          }
+        },
+        {
+          "client_id": "702473456619-971q88ni8q502s46io22hfli25eh75q9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDc-NYlLUUtEUe_LYUUb6fLWV26CrTDieU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "702473456619-971q88ni8q502s46io22hfli25eh75q9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

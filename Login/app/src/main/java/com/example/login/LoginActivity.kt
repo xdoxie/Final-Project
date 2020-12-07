@@ -9,26 +9,38 @@ import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-//import com.google.firebase.auth.FirebaseAuth
-//import com.google.firebase.database.DatabaseReference
-//import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class LoginActivity :  AppCompatActivity(){
+    private var mDatabaseReference: DatabaseReference? = null
+    private var mDatabase: FirebaseDatabase? = null
+    private var mAuth: FirebaseAuth? = null
     private var userEmail: EditText? = null
     private var userPassword: EditText? = null
     private var loginBtn: Button? = null
+    private var registerBtn: Button? = null
     private var progressBar: ProgressBar? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        mDatabase = FirebaseDatabase.getInstance()
+        mDatabaseReference = mDatabase!!.reference.child("Users")
+        mAuth = FirebaseAuth.getInstance()
         userEmail = findViewById(R.id.email)
         userPassword = findViewById(R.id.password)
         loginBtn = findViewById(R.id.login)
+        registerBtn = findViewById<Button>(R.id.register)
         progressBar = findViewById(R.id.progressBar)
 
         loginBtn!!.setOnClickListener { loginUserAccount() }
+        registerBtn!!.setOnClickListener {
+            val i = Intent(this, RegistrationActivity::class.java)
+            startActivity(i)
+        }
     }
 
     private fun loginUserAccount() {
@@ -47,19 +59,25 @@ class LoginActivity :  AppCompatActivity(){
         }
         val intent = Intent(this, ActivityHub::class.java)
         startActivity(intent)
-/*        mAuth!!.signInWithEmailAndPassword(userEmail, password)
+
+        mAuth!!.signInWithEmailAndPassword(userEmail, password)
             .addOnCompleteListener({
                 progressBar!!.visibility = View.GONE
 
                 if(it.isSuccessful){
                     Toast.makeText(applicationContext, "Login Successful", Toast.LENGTH_LONG).show()
-                    val i = Intent(this, DashboardActivity::class.java)
+                    val i = Intent(this, ContactManager::class.java)
                     i.putExtra(USER_EMAIL,userEmail)
 
                     startActivity(i.putExtra(USER_ID, mAuth!!.uid))
                 } else {
                     Toast.makeText(applicationContext, "Login failed. please try again later", Toast.LENGTH_LONG).show()
                 }
-            })*/
+            })
+    }
+
+    companion object {
+        const val USER_EMAIL = "com.example.tesla.myhomelibrary.useremail"
+        const val USER_ID = "com.example.tesla.myhomelibrary.userid"
     }
 }

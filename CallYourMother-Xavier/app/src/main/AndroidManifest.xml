@@ -3,6 +3,7 @@
     package="com.example.contacts"
     android:versionCode="1"
     android:versionName="1.0">
+    <uses-permission android:name="android.permission.VIBRATE" />
 
 
     <application
@@ -22,6 +23,8 @@
         </activity>
         <activity android:name=".AddNewContact" >
         </activity>
+
+        <receiver android:name="com.example.callyourmother.AlarmNotificationReceiver" />
     </application>
 
 </manifest>

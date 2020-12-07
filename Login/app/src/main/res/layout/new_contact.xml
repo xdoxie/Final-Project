@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <!-- Title -->
+
+    <TextView
+        android:id="@+id/FirstNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="First Name"
+        android:textAppearance="?android:attr/textAppearanceLarge" >
+    </TextView>
+
+    <!-- Status -->
+
+
+    <!-- Priority -->
+
+    <!-- Time and Date -->
+
+    <!-- Buttons -->
+
+    <EditText
+        android:id="@+id/FirstName"
+        android:layout_width="169dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/FirstNameLabel"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Enter First NAme"
+        android:inputType="textShortMessage">
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/LastNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="224dp"
+        android:layout_marginTop="8dp"
+        android:text="LastName"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/LastName"
+        android:layout_width="169dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/LastNameLabel"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="212dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Enter Last Name"
+        android:inputType="textShortMessage">
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/PhoneNumberLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/LastName"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="125dp"
+        android:layout_marginTop="16dp"
+        android:text="Phone Number"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/PhoneNumber"
+        android:layout_width="351dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/PhoneNumberLabel"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="26dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Enter Phone Number"
+        android:inputType="textShortMessage">
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/reminder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/PhoneNumber"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="-4dp"
+        android:layout_marginTop="46dp"
+        android:text="Reminder Frequency:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <RadioGroup
+        android:id="@+id/reminderGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/reminder"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="11dp"
+        android:orientation="horizontal"
+        android:text="Reminder Frequency:">
+
+        <RadioButton
+            android:id="@+id/Daily"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Daily" />
+
+        <RadioButton
+            android:id="@+id/Weekly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Weekly" />
+
+        <RadioButton
+            android:id="@+id/BiWeekly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Bi-Weekly" />
+
+        <RadioButton
+            android:id="@+id/Monthly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Monthly" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/cancelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="68dp"
+        android:layout_marginBottom="320dp"
+        android:text="Cancel" />
+
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="108dp"
+        android:layout_marginBottom="320dp"
+        android:text="Submit" />
+
+
+</RelativeLayout>

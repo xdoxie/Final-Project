@@ -16,7 +16,7 @@ class SplashActivity : AppCompatActivity() {
         creators = findViewById(R.id.creators)
         Handler().postDelayed({
 
-            startActivity(Intent(this,MainActivity::class.java))
+            startActivity(Intent(this,ActivityHub::class.java))
 
             // close this activity
             finish()

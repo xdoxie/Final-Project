@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Call-Your-Mother</string>
+    <string name="app_name">CallYourMother</string>
+    <string name="channel_name">NotificationChannel</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.call_your_mother
+package com.example.callyourmother
 
 import org.junit.Test
 

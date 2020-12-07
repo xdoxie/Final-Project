@@ -1,28 +1,38 @@
 package com.example.login
+import ContactsAdapter
 import android.app.Activity
+import android.app.AlarmManager
 import android.app.ListActivity
+import android.app.PendingIntent
 import android.view.ViewGroup
 
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.os.SystemClock
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import com.example.login.AlarmNotificationReceiver
 import java.io.*
 import java.text.ParseException
 import com.example.login.Contact.Reminder
 
 
+
 class ContactManager: ListActivity() {
     internal lateinit var mAdapter: ContactsAdapter
 
+    private lateinit var mNotificationReceiverPendingIntent: PendingIntent
+    private var mAlarmManager: AlarmManager? =null
+    var repeat_interval: Long = 0
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mAdapter = ContactsAdapter(applicationContext)
+        mAlarmManager = applicationContext.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         listView.setFooterDividersEnabled(true)
 
         val footerView: View= LayoutInflater.from(this@ContactManager).inflate(R.layout.contacts_main,listView,false)
@@ -46,7 +56,32 @@ class ContactManager: ListActivity() {
             if (resultCode == Activity.RESULT_OK) {
                 val intent = Intent(data)
                 val item = Contact(intent)
+                if (item.reminder==Contact.Reminder.DAILY){
+                    repeat_interval= DAY
+                }else if (item.reminder==Contact.Reminder.WEEKLY){
+                    repeat_interval= SEVEN_DAYS
+                }else if (item.reminder==Contact.Reminder.BIWEEKLY){
+                    repeat_interval= FOURTEEN_DAYS
+                }else {
+                    repeat_interval =MONTH
+                }
+
+                val mNotificationReceiverIntent = Intent(
+                    this@ContactManager, AlarmNotificationReceiver::class.java
+                )
+                mNotificationReceiverIntent.putExtra(Contact.FIRSTNAME,item.firstName)
+                mNotificationReceiverIntent.putExtra(Contact.LASTNAME,item.lastName)
+                mNotificationReceiverIntent.putExtra(Contact.NUMBER,item.phoneNumber)
+                mNotificationReceiverPendingIntent = PendingIntent.getBroadcast(
+                    this@ContactManager, 0, mNotificationReceiverIntent, 0
+                )
                 mAdapter.add(item)
+                mAlarmManager?.setRepeating(
+                    AlarmManager.ELAPSED_REALTIME,
+                    SystemClock.elapsedRealtime(),
+                    REPEAT_INTERVAL.toLong(),
+                    mNotificationReceiverPendingIntent
+                )
                 // if user submitted a new ToDoItem
                 // Create a new ToDoItem from the data Intent
                 // and then add it to the adapter
@@ -167,7 +202,11 @@ class ContactManager: ListActivity() {
         }
     }
     companion object {
-
+        private val DAY= 8640000.toLong()
+        private val SEVEN_DAYS = 604800000.toLong()
+        private val FOURTEEN_DAYS=1209600000.toLong()
+        private val MONTH= 2592000000.toLong()
+        private const val REPEAT_INTERVAL = 30 * 1000
         private val ADD_CONTACT_REQUEST = 0
         private val TAG = "Contacts-Project"
         private val FILE_NAME="ContactManager.txt"

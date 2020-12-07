@@ -8,41 +8,43 @@
 
     <TextView
         android:id="@+id/firstTitle"
-        android:textSize="40dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:gravity="center"
         android:text="@string/call_your_mother"
-        android:layout_weight="1"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="40dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="250dp"
+        android:src="@mipmap/call_your_mom" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dip"
         android:layout_weight="1"
         android:gravity="center">
+
 
         <Button
             android:id="@+id/contactsButton"
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="145dp"
+            android:layout_width="261dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal|center"
+            android:layout_gravity="center_horizontal|bottom"
             android:text="@string/contacts_button_label" />
-
-        <Button
-            android:id="@+id/addContactButton"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="145dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal|center"
-            android:text="@string/add_button_label" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dip"
         android:layout_weight="1"
         android:gravity="center">
+
 
         <Button
             android:id="@+id/instructionsButton"
@@ -50,7 +52,9 @@
             android:layout_width="145dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|center"
+
             android:text="@string/instructions_button_label" />
+
         <Button
             android:id="@+id/aboutButton"
             style="?android:attr/buttonStyleSmall"

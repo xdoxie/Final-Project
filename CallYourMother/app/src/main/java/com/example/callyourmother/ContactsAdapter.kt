@@ -1,13 +1,10 @@
 package com.example.contacts
 
-import android.app.NotificationManager
+import android.app.*
 import android.content.Context
-import android.app.Notification
-import android.app.NotificationChannel
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.app.PendingIntent
 import android.content.Intent
 import android.graphics.Color
 import android.media.AudioAttributes
@@ -24,6 +21,8 @@ class ContactsAdapter(private val mContext: Context) : BaseAdapter()  {
     private val mContacts = ArrayList<Contact>()
     private lateinit var mChannelID: String
     private lateinit var mNotificationManager: NotificationManager
+
+    private var mAlarmManager: AlarmManager? =null
     fun add(contact: Contact ) {
 
         mContacts.add(contact)
@@ -55,6 +54,7 @@ class ContactsAdapter(private val mContext: Context) : BaseAdapter()  {
     @RequiresApi(Build.VERSION_CODES.O)
     private fun createNotificationChannel() {
         mNotificationManager = mContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        mAlarmManager = mContext.getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
         mChannelID = "${mContext.packageName}.channel_01"
         val name = "NotificationChannel"
@@ -120,7 +120,20 @@ class ContactsAdapter(private val mContext: Context) : BaseAdapter()  {
                 mContext.packageName,
                 R.layout.custom_notification
             )
+            val notificationBuilder = Notification.Builder(
+                mContext, mChannelID
+            )
+                .setTicker(mTickerText)
+                .setSmallIcon(android.R.drawable.stat_sys_warning)
+                .setAutoCancel(true)
+                .setContentIntent(contentIntent)
+                .setCustomContentView(contentView)
+
             contentView.setTextViewText(R.id.notification_text, contact.notification())
+            mNotificationManager.notify(
+                MY_NOTIFICATION_ID,
+                notificationBuilder.build()
+            )
 
         }
 
@@ -143,8 +156,10 @@ class ContactsAdapter(private val mContext: Context) : BaseAdapter()  {
         private val FOURTEEN_DAYS=1209600000
         private val MONTH= 2592000000
         private val mVibratePattern = longArrayOf(100, 200, 300, 400, 500, 400, 300, 200, 400)
-        private val soundURI = Uri
-            .parse("android.resource://course.examples.notification.statusbarwithcustomview/" + R.raw.notification)
+        private val soundURI = Uri.parse("android.resource://course.examples.notification.statusbarwithcustomview/" + R.raw.notification)
+        private const val mTickerText = "You have someone to call"
+        private const val MY_NOTIFICATION_ID = 1
+
         private val TAG = "Contacts-Project"
     }
 }

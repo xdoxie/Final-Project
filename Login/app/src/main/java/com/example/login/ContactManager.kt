@@ -16,6 +16,7 @@ import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.AdapterView
 import com.example.login.AlarmNotificationReceiver
 import java.io.*
 import java.text.ParseException
@@ -43,7 +44,24 @@ class ContactManager: ListActivity() {
 
         footerView.setOnClickListener{startActivityForResult(activity,ADD_CONTACT_REQUEST)}
         listView.adapter=mAdapter
+        listView.setOnItemClickListener { adapterView: AdapterView<*>, view1: View, i: Int, l: Long ->
+           val data= mAdapter.getItem(i) as Contact
+            val mNotificationReceiverIntent = Intent(
+                this@ContactManager, AlarmNotificationReceiver::class.java
+            )
+            mNotificationReceiverIntent.putExtra(Contact.FIRSTNAME,data.firstName)
+            mNotificationReceiverIntent.putExtra(Contact.LASTNAME,data.lastName)
+            mNotificationReceiverIntent.putExtra(Contact.NUMBER,data.phoneNumber)
+            mNotificationReceiverPendingIntent = PendingIntent.getBroadcast(
+                this@ContactManager, 0, mNotificationReceiverIntent, 0
+            )
+           var mAlarmManagerCancel: AlarmManager? =applicationContext.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+            mAlarmManagerCancel?.cancel(mNotificationReceiverPendingIntent)
 
+
+            mAdapter.delete(i)
+
+        };
 
 
     }
@@ -74,13 +92,14 @@ class ContactManager: ListActivity() {
                 mNotificationReceiverPendingIntent = PendingIntent.getBroadcast(
                     this@ContactManager, 0, mNotificationReceiverIntent, 0
                 )
-                mAdapter.add(item)
-                mAlarmManager?.setRepeating(
-                    AlarmManager.ELAPSED_REALTIME,
-                    SystemClock.elapsedRealtime(),
-                    REPEAT_INTERVAL.toLong(),
-                    mNotificationReceiverPendingIntent
-                )
+                    mAlarmManager?.setRepeating(
+                        AlarmManager.ELAPSED_REALTIME,
+                        SystemClock.elapsedRealtime(),
+                        REPEAT_INTERVAL.toLong(),
+                        mNotificationReceiverPendingIntent
+                    )
+
+
                 // if user submitted a new ToDoItem
                 // Create a new ToDoItem from the data Intent
                 // and then add it to the adapter
@@ -106,9 +125,8 @@ class ContactManager: ListActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         super.onCreateOptionsMenu(menu)
-
-        menu.add(Menu.NONE, MENU_DELETE, Menu.NONE, "Delete all")
-        menu.add(Menu.NONE, MENU_DUMP, Menu.NONE, "Dump to log")
+        val inflator= menuInflater
+        inflator.inflate(R.menu.menu_main,menu)
         return true
     }
 

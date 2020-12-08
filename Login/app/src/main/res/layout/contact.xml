@@ -8,22 +8,23 @@
     <TextView
         android:id="@+id/nameView"
         android:layout_width="164dp"
-        android:layout_height="57dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="232dp"
-        android:layout_marginLeft="232dp"
-        android:layout_marginTop="10dp"
+
+        android:layout_marginLeft="17dp"
+        android:layout_marginTop="17dp"
         android:textAppearance="?android:attr/textAppearanceLarge"></TextView>
 
     <TextView
         android:id="@+id/lastNameView"
-        android:layout_width="203dp"
-        android:layout_height="56dp"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="7dp"
-        android:layout_marginTop="9dp"
+        android:layout_marginLeft="217dp"
+        android:layout_marginTop="15dp"
+        android:layout_alignLeft="@+id/nameView"
         android:textAppearance="?android:attr/textAppearanceLarge"></TextView>
 
     <TextView
@@ -34,16 +35,19 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="84dp"
         android:textAppearance="?android:attr/textAppearanceLarge"></TextView>
 
     <TextView
         android:id="@+id/ReminderLabel"
-        android:layout_width="150dp"
-        android:layout_height="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/numberView"
-        android:layout_marginTop="5dp"
-        android:text="ReminderFrequency: "></TextView>
+        android:layout_marginTop="32dp"
+
+        android:textSize="17dp"
+        android:text="Reminder Frequency: ">
+       </TextView>
 
     <TextView
         android:id="@+id/reminderView"
@@ -51,7 +55,8 @@
         android:layout_height="20dp"
         android:layout_below="@+id/ReminderLabel"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="-17dp"
-        android:layout_marginRight="40dp"></TextView>
+        android:layout_marginTop="-22dp"
+        android:layout_alignRight="@+id/ReminderLabel"
+        android:layout_marginRight="24dp"></TextView>
 
 </RelativeLayout>

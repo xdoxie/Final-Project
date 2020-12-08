@@ -7,4 +7,9 @@
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/MENU_DELETE"
+        android:orderInCategory="100"
+        android:title="Delete All Contacts"
+        app:showAsAction="never" />
 </menu>

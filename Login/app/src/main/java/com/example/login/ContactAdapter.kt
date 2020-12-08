@@ -31,11 +31,18 @@ class ContactsAdapter(private val mContext: Context) : BaseAdapter()  {
         notifyDataSetChanged()
 
     }
+    fun contains(contact: Contact): Boolean {
+        return mContacts.contains(contact)
+    }
     fun clear() {
 
         mContacts.clear()
         notifyDataSetChanged()
 
+    }
+    fun delete(position: Int){
+        mContacts.removeAt(position)
+        notifyDataSetChanged()
     }
 
 
@@ -99,15 +106,75 @@ class ContactsAdapter(private val mContext: Context) : BaseAdapter()  {
         viewHolder.mPhoneNumberView=viewHolder.mContactLayout!!.findViewById((R.id.numberView))
         viewHolder.mReminderView=viewHolder.mContactLayout!!.findViewById(R.id.reminderView)
 
+<<<<<<< HEAD
+=======
+//        if (contact.reminder==Contact.Reminder.DAILY){
+//            repeat_interval= DAY
+//        }else if (contact.reminder==Contact.Reminder.WEEKLY){
+//            repeat_interval= SEVEN_DAYS
+//        }else if (contact.reminder==Contact.Reminder.BIWEEKLY){
+//            repeat_interval= FOURTEEN_DAYS
+//        }else {
+//            repeat_interval =MONTH
+//        }
+//
+//            val mNotificationReceiverIntent = Intent(
+//                mContext, AlarmNotificationReceiver::class.java
+//            )
+//            mNotificationReceiverPendingIntent = PendingIntent.getBroadcast(
+//                mContext, 0, mNotificationReceiverIntent, 0
+//            )
+//            mAlarmManager!!.setRepeating(
+//                AlarmManager.ELAPSED_REALTIME,
+//                SystemClock.elapsedRealtime(),
+//                REPEAT_INTERVAL.toLong(),
+//                mNotificationReceiverPendingIntent
+//            )
 
-        viewHolder.position=position
+            viewHolder.position=position
 
-        viewHolder.mNameView?.text= contact.firstName
-        viewHolder.mLastNameView?.text=contact.lastName
+            viewHolder.mNameView?.text= contact.firstName
+            viewHolder.mLastNameView?.text=contact.lastName
+>>>>>>> d707081912e646e497cce2f371fdbda5371c62fa
 
-        viewHolder.mPhoneNumberView?.text=contact.phoneNumber
+            viewHolder.mPhoneNumberView?.text=contact.phoneNumber
 
+            viewHolder.mReminderView?.text= contact.reminder.toString()
+
+<<<<<<< HEAD
         viewHolder.mReminderView?.text= contact.reminder.toString()
+=======
+//        if(convertView!=null){
+//            createNotificationChannel()
+//            val notificationIntent = Intent(
+//                mContext,
+//                ContactManager::class.java
+//            ).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+//            val contentIntent = PendingIntent.getActivity(
+//                mContext, 0,
+//                notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT
+//            )
+//            val contentView = RemoteViews(
+//                mContext.packageName,
+//                R.layout.custom_notification
+//            )
+//            val notificationBuilder = Notification.Builder(
+//                mContext, mChannelID
+//            )
+//                .setTicker(mTickerText)
+//                .setSmallIcon(android.R.drawable.stat_sys_warning)
+//                .setAutoCancel(true)
+//                .setContentIntent(contentIntent)
+//                .setCustomContentView(contentView)
+//
+//            contentView.setTextViewText(R.id.notification_text, contact.notification())
+//            mNotificationManager.notify(
+//                MY_NOTIFICATION_ID,
+//                notificationBuilder.build()
+//            )
+
+//        }
+>>>>>>> d707081912e646e497cce2f371fdbda5371c62fa
 
         return viewHolder.mContactLayout
     }

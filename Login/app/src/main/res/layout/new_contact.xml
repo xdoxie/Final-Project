@@ -32,8 +32,11 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="Enter First NAme"
+        android:background= "#a9a9a9"
+        android:hint="Enter First Name"
+        android:textColorHint="#ffffff"
         android:inputType="textShortMessage">
+
 
         <requestFocus />
     </EditText>
@@ -57,7 +60,9 @@
         android:layout_marginLeft="212dp"
         android:layout_marginTop="16dp"
         android:ems="10"
+        android:background="#a9a9a9"
         android:hint="Enter Last Name"
+        android:textColorHint="#ffffff"
         android:inputType="textShortMessage">
 
         <requestFocus />
@@ -83,7 +88,9 @@
         android:layout_marginLeft="26dp"
         android:layout_marginTop="16dp"
         android:ems="10"
+        android:background="#a9a9a9"
         android:hint="Enter Phone Number"
+        android:textColorHint="#ffffff"
         android:inputType="textShortMessage">
 
         <requestFocus />
@@ -145,6 +152,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="68dp"
+        android:background= "@drawable/round_button"
         android:layout_marginBottom="320dp"
         android:text="Cancel" />
 
@@ -156,6 +164,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginRight="108dp"
         android:layout_marginBottom="320dp"
+        android:background= "@drawable/round_button"
         android:text="Submit" />
 
 

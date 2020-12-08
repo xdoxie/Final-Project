@@ -51,7 +51,6 @@ class ContactManager: ListActivity() {
 
         Log.i(TAG, "Entered onActivityResult()")
 
-        // TODO - Check result code and request code
         if (requestCode == ADD_CONTACT_REQUEST) {
             if (resultCode == Activity.RESULT_OK) {
                 val intent = Intent(data)

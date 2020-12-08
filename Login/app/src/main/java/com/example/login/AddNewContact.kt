@@ -45,8 +45,6 @@ class AddNewContact : Activity(){
 
         val cancelButton = findViewById<View>(R.id.cancelButton) as Button
         cancelButton.setOnClickListener { Log.i(TAG, "Entered cancelButton.OnClickListener.onClick()")
-
-            // TODO - Indicate result and finish
             setResult(RESULT_CANCELED)
             finish()
         }
@@ -54,11 +52,9 @@ class AddNewContact : Activity(){
         submitButton.setOnClickListener {
             Log.i(TAG, "Entered submitButton.OnClickListener.onClick()")
 
-            // TODO - gather ToDoItem data
 
             val viewIntent = Intent(Intent.ACTION_VIEW)
             Contact.packageIntent(viewIntent, mFirstNameText!!.text.toString(),mLastNameText!!.text.toString(),mPhoneNumberText!!.text.toString(),mReminder)
-            // TODO - return data Intent and finish
             setResult(RESULT_OK,viewIntent)
             finish()
         }

@@ -31,6 +31,9 @@ class ContactsAdapter(private val mContext: Context) : BaseAdapter()  {
         notifyDataSetChanged()
 
     }
+    fun contains(contact: Contact): Boolean {
+        return mContacts.contains(contact)
+    }
     fun clear() {
 
         mContacts.clear()

@@ -45,7 +45,9 @@ class ContactManager: ListActivity() {
         footerView.setOnClickListener{startActivityForResult(activity,ADD_CONTACT_REQUEST)}
         listView.adapter=mAdapter
         listView.setOnItemClickListener { adapterView: AdapterView<*>, view1: View, i: Int, l: Long ->
+
             mAdapter.delete(i)
+
         };
 
 
@@ -79,12 +81,17 @@ class ContactManager: ListActivity() {
                     this@ContactManager, 0, mNotificationReceiverIntent, 0
                 )
                 mAdapter.add(item)
-                mAlarmManager?.setRepeating(
-                    AlarmManager.ELAPSED_REALTIME,
-                    SystemClock.elapsedRealtime(),
-                    REPEAT_INTERVAL.toLong(),
-                    mNotificationReceiverPendingIntent
-                )
+                if(mAdapter.contains(item)) {
+                    mAlarmManager?.cancel(mNotificationReceiverPendingIntent)
+                }else {
+                    mAlarmManager?.setRepeating(
+                        AlarmManager.ELAPSED_REALTIME,
+                        SystemClock.elapsedRealtime(),
+                        REPEAT_INTERVAL.toLong(),
+                        mNotificationReceiverPendingIntent
+                    )
+                }
+
                 // if user submitted a new ToDoItem
                 // Create a new ToDoItem from the data Intent
                 // and then add it to the adapter

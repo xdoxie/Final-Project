@@ -11,6 +11,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+
         android:gravity="center"
         android:text="@string/call_your_mother"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -20,6 +21,7 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="200dp"
+        android:layout_marginBottom="80dp"
         android:layout_marginTop="250dp"
         android:src="@mipmap/call_your_mom" />
 
@@ -34,6 +36,7 @@
             android:id="@+id/contactsButton"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="261dp"
+            android:layout_margin="2dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|bottom"
             android:background="@drawable/round_button"
@@ -61,6 +64,7 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="145dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
             android:layout_gravity="center_horizontal|center"
             android:background="@drawable/round_button"
             android:text="@string/about_button_label" />

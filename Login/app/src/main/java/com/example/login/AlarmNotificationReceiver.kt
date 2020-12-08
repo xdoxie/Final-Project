@@ -15,7 +15,7 @@ import com.example.login.ContactManager
 
 class AlarmNotificationReceiver: BroadcastReceiver() {
     companion object {
-        // Notification ID to allow for future updates
+
         private const val MY_NOTIFICATION_ID = 1
         private val soundURI = Uri.parse("android.resource://course.examples.notification.statusbarwithcustomview/" + R.raw.notification)
         private const val mTickerText = "You have someone to call"
@@ -26,7 +26,7 @@ class AlarmNotificationReceiver: BroadcastReceiver() {
 
 
 
-    // Notification Sound and Vibration on Arrival
+
 
     private lateinit var mContext: Context
     private lateinit var mChannelID: String
@@ -91,8 +91,7 @@ class AlarmNotificationReceiver: BroadcastReceiver() {
         mChannel.description = description
         mChannel.enableLights(true)
 
-        // Sets the notification light color for notifications posted to this
-        // channel, if the device supports this feature.
+
         mChannel.lightColor = Color.RED
         mChannel.enableVibration(true)
         mChannel.vibrationPattern = mVibratePattern

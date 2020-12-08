@@ -21,9 +21,7 @@ import java.util.ArrayList
 
 class ContactsAdapter(private val mContext: Context) : BaseAdapter()  {
     private val mContacts = ArrayList<Contact>()
-    //    private lateinit var mChannelID: String
-//    private lateinit var mNotificationManager: NotificationManager
-    private lateinit var mNotificationReceiverPendingIntent: PendingIntent
+
     private var mAlarmManager: AlarmManager? =null
     fun add(contact: Contact ) {
 
@@ -59,37 +57,7 @@ class ContactsAdapter(private val mContext: Context) : BaseAdapter()  {
     }
 
 
-    //    @RequiresApi(Build.VERSION_CODES.O)
-//    private fun createNotificationChannel() {
-//        mNotificationManager = mContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-//
-//
-//        mChannelID = "${mContext.packageName}.channel_01"
-//        val name = "NotificationChannel"
-//
-//        val description ="Notification Channel for this app"
-//        val importance = NotificationManager.IMPORTANCE_HIGH
-//        val mChannel = NotificationChannel(mChannelID, name, importance)
-//
-//        mChannel.description = description
-//        mChannel.enableLights(true)
-//
-//        // Sets the notification light color for notifications posted to this
-//        // channel, if the device supports this feature.
-//        mChannel.lightColor = Color.RED
-//        mChannel.enableVibration(true)
-//        mChannel.vibrationPattern = mVibratePattern
-//
-//        mChannel.setSound(
-//            soundURI,
-//            AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_NOTIFICATION).build()
-//        )
-//
-//        mNotificationManager.createNotificationChannel(mChannel)
-//
-//
-//
-//    }
+
     private var mContact: LayoutInflater = LayoutInflater.from(mContext)
     var repeat_interval: Long = 0
 
@@ -110,29 +78,6 @@ class ContactsAdapter(private val mContext: Context) : BaseAdapter()  {
         viewHolder.mPhoneNumberView=viewHolder.mContactLayout!!.findViewById((R.id.numberView))
         viewHolder.mReminderView=viewHolder.mContactLayout!!.findViewById(R.id.reminderView)
 
-//        if (contact.reminder==Contact.Reminder.DAILY){
-//            repeat_interval= DAY
-//        }else if (contact.reminder==Contact.Reminder.WEEKLY){
-//            repeat_interval= SEVEN_DAYS
-//        }else if (contact.reminder==Contact.Reminder.BIWEEKLY){
-//            repeat_interval= FOURTEEN_DAYS
-//        }else {
-//            repeat_interval =MONTH
-//        }
-//
-//            val mNotificationReceiverIntent = Intent(
-//                mContext, AlarmNotificationReceiver::class.java
-//            )
-//            mNotificationReceiverPendingIntent = PendingIntent.getBroadcast(
-//                mContext, 0, mNotificationReceiverIntent, 0
-//            )
-//            mAlarmManager!!.setRepeating(
-//                AlarmManager.ELAPSED_REALTIME,
-//                SystemClock.elapsedRealtime(),
-//                REPEAT_INTERVAL.toLong(),
-//                mNotificationReceiverPendingIntent
-//            )
-
             viewHolder.position=position
 
             viewHolder.mNameView?.text= contact.firstName
@@ -142,36 +87,6 @@ class ContactsAdapter(private val mContext: Context) : BaseAdapter()  {
 
             viewHolder.mReminderView?.text= contact.reminder.toString()
 
-//        if(convertView!=null){
-//            createNotificationChannel()
-//            val notificationIntent = Intent(
-//                mContext,
-//                ContactManager::class.java
-//            ).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-//            val contentIntent = PendingIntent.getActivity(
-//                mContext, 0,
-//                notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT
-//            )
-//            val contentView = RemoteViews(
-//                mContext.packageName,
-//                R.layout.custom_notification
-//            )
-//            val notificationBuilder = Notification.Builder(
-//                mContext, mChannelID
-//            )
-//                .setTicker(mTickerText)
-//                .setSmallIcon(android.R.drawable.stat_sys_warning)
-//                .setAutoCancel(true)
-//                .setContentIntent(contentIntent)
-//                .setCustomContentView(contentView)
-//
-//            contentView.setTextViewText(R.id.notification_text, contact.notification())
-//            mNotificationManager.notify(
-//                MY_NOTIFICATION_ID,
-//                notificationBuilder.build()
-//            )
-
-//        }
 
         return viewHolder.mContactLayout
     }

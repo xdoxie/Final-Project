@@ -83,7 +83,7 @@ class ContactManager: ListActivity() {
                 }else {
                     repeat_interval =MONTH
                 }
-
+                mAdapter.add(item)
                 val mNotificationReceiverIntent = Intent(
                     this@ContactManager, AlarmNotificationReceiver::class.java
                 )
@@ -99,18 +99,13 @@ class ContactManager: ListActivity() {
                         REPEAT_INTERVAL.toLong(),
                         mNotificationReceiverPendingIntent
                     )
-
-
-                // if user submitted a new ToDoItem
-                // Create a new ToDoItem from the data Intent
-                // and then add it to the adapter
             }
         }
     }
     public override fun onResume() {
         super.onResume()
 
-        // Load saved ToDoItems, if necessary
+
 
         if (mAdapter.count == 0)
             loadItems()
@@ -118,7 +113,7 @@ class ContactManager: ListActivity() {
     override fun onPause() {
         super.onPause()
 
-        // Save ToDoItems
+
 
         saveItems()
 
@@ -133,10 +128,6 @@ class ContactManager: ListActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            MENU_DELETE -> {
-                mAdapter.clear()
-                return true
-            }
             MENU_DUMP -> {
                 dump()
                 return true
@@ -196,7 +187,7 @@ class ContactManager: ListActivity() {
         }
     }
 
-    // Save ToDoItems to file
+
     private fun saveItems() {
         var writer: PrintWriter? = null
         try {
@@ -228,7 +219,7 @@ class ContactManager: ListActivity() {
         private val ADD_CONTACT_REQUEST = 0
         private val TAG = "Contacts-Project"
         private val FILE_NAME="ContactManager.txt"
-        // IDs for menu items
+
         private val MENU_DELETE = Menu.FIRST
         private val MENU_DUMP = Menu.FIRST + 1
     }

@@ -8,18 +8,18 @@
     <TextView
         android:id="@+id/nameView"
         android:layout_width="164dp"
-        android:layout_height="57dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="232dp"
         android:layout_marginLeft="232dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="6dp"
         android:textAppearance="?android:attr/textAppearanceLarge"></TextView>
 
     <TextView
         android:id="@+id/lastNameView"
-        android:layout_width="203dp"
-        android:layout_height="56dp"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="7dp"
@@ -34,16 +34,19 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="84dp"
         android:textAppearance="?android:attr/textAppearanceLarge"></TextView>
 
     <TextView
         android:id="@+id/ReminderLabel"
-        android:layout_width="150dp"
-        android:layout_height="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/numberView"
-        android:layout_marginTop="5dp"
-        android:text="ReminderFrequency: "></TextView>
+        android:layout_marginTop="32dp"
+
+        android:textSize="17dp"
+        android:text="Reminder Frequency: ">
+       </TextView>
 
     <TextView
         android:id="@+id/reminderView"

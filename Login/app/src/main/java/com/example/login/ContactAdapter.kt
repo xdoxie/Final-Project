@@ -37,6 +37,10 @@ class ContactsAdapter(private val mContext: Context) : BaseAdapter()  {
         notifyDataSetChanged()
 
     }
+    fun delete(position: Int){
+        mContacts.removeAt(position)
+        notifyDataSetChanged()
+    }
 
 
     override fun getItem(position: Int): Any {
@@ -126,16 +130,15 @@ class ContactsAdapter(private val mContext: Context) : BaseAdapter()  {
 //                mNotificationReceiverPendingIntent
 //            )
 
+            viewHolder.position=position
 
+            viewHolder.mNameView?.text= contact.firstName
+            viewHolder.mLastNameView?.text=contact.lastName
 
-        viewHolder.position=position
+            viewHolder.mPhoneNumberView?.text=contact.phoneNumber
 
-        viewHolder.mNameView?.text= contact.firstName
-        viewHolder.mLastNameView?.text=contact.lastName
+            viewHolder.mReminderView?.text= contact.reminder.toString()
 
-        viewHolder.mPhoneNumberView?.text=contact.phoneNumber
-
-        viewHolder.mReminderView?.text= contact.reminder.toString()
 //        if(convertView!=null){
 //            createNotificationChannel()
 //            val notificationIntent = Intent(

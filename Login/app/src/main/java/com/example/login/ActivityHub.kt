@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.widget.Button
 import android.widget.TextView
 import org.w3c.dom.Text
@@ -48,5 +49,10 @@ class ActivityHub : AppCompatActivity() {
             val i = Intent(this, ScrollingActivity::class.java)
             startActivity(i)
         }
+    }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflator= menuInflater
+        inflator.inflate(R.menu.menu_main,menu)
+        return true
     }
 }

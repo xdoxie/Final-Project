@@ -26,7 +26,6 @@ import com.example.login.Contact.Reminder
 
 class ContactManager: ListActivity() {
     internal lateinit var mAdapter: ContactsAdapter
-
     private lateinit var mNotificationReceiverPendingIntent: PendingIntent
     private var mAlarmManager: AlarmManager? =null
     var repeat_interval: Long = 0
@@ -53,7 +52,7 @@ class ContactManager: ListActivity() {
             mNotificationReceiverIntent.putExtra(Contact.LASTNAME,data.lastName)
             mNotificationReceiverIntent.putExtra(Contact.NUMBER,data.phoneNumber)
             mNotificationReceiverPendingIntent = PendingIntent.getBroadcast(
-                this@ContactManager, 0, mNotificationReceiverIntent, 0
+                this@ContactManager, i, mNotificationReceiverIntent, 0
             )
            var mAlarmManagerCancel: AlarmManager? =applicationContext.getSystemService(Context.ALARM_SERVICE) as AlarmManager
             mAlarmManagerCancel?.cancel(mNotificationReceiverPendingIntent)
@@ -65,11 +64,11 @@ class ContactManager: ListActivity() {
 
 
     }
+    var i: Int = 0;
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 
         Log.i(TAG, "Entered onActivityResult()")
 
-        // TODO - Check result code and request code
         if (requestCode == ADD_CONTACT_REQUEST) {
             if (resultCode == Activity.RESULT_OK) {
                 val intent = Intent(data)
@@ -91,12 +90,12 @@ class ContactManager: ListActivity() {
                 mNotificationReceiverIntent.putExtra(Contact.LASTNAME,item.lastName)
                 mNotificationReceiverIntent.putExtra(Contact.NUMBER,item.phoneNumber)
                 mNotificationReceiverPendingIntent = PendingIntent.getBroadcast(
-                    this@ContactManager, 0, mNotificationReceiverIntent, 0
+                    this@ContactManager, i, mNotificationReceiverIntent, 0
                 )
                     mAlarmManager?.setRepeating(
                         AlarmManager.ELAPSED_REALTIME,
                         SystemClock.elapsedRealtime(),
-                        REPEAT_INTERVAL.toLong(),
+                        repeat_interval.toLong(),
                         mNotificationReceiverPendingIntent
                     )
             }

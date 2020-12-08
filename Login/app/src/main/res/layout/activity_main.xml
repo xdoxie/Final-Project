@@ -5,13 +5,17 @@
     android:layout_height="match_parent"
     android:gravity="center_vertical"
     android:orientation="vertical"
-    android:padding="16dp"
+    android:padding="10dp"
     tools:context="com.example.login.LoginActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary" />
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Call Your Mother Account Login"/>
+        android:layout_height="wrap_content" />
     <EditText
         android:id="@+id/email"
         android:layout_width="match_parent"

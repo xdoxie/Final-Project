@@ -57,8 +57,6 @@ class LoginActivity :  AppCompatActivity(){
             Toast.makeText(applicationContext, "Please enter password", Toast.LENGTH_LONG).show()
             return
         }
-        val intent = Intent(this, ActivityHub::class.java)
-        startActivity(intent)
 
         mAuth!!.signInWithEmailAndPassword(userEmail, password)
             .addOnCompleteListener({
@@ -66,12 +64,11 @@ class LoginActivity :  AppCompatActivity(){
 
                 if(it.isSuccessful){
                     Toast.makeText(applicationContext, "Login Successful", Toast.LENGTH_LONG).show()
-                    val i = Intent(this, ContactManager::class.java)
-                    i.putExtra(USER_EMAIL,userEmail)
-
-                    startActivity(i.putExtra(USER_ID, mAuth!!.uid))
+                    val intent = Intent(this, ActivityHub::class.java)
+                    intent.putExtra(USER_EMAIL,userEmail)
+                    startActivity(intent.putExtra(USER_ID, mAuth!!.uid))
                 } else {
-                    Toast.makeText(applicationContext, "Login failed. please try again later", Toast.LENGTH_LONG).show()
+                    Toast.makeText(applicationContext, "Login failed", Toast.LENGTH_LONG).show()
                 }
             })
     }

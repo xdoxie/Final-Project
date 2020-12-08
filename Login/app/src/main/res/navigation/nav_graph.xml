@@ -6,7 +6,7 @@
     app:startDestination="@id/splashActivity">
     <activity
         android:id="@+id/splashActivity"
-        android:name="com.example.login.SplashActivity"
+        android:name="com.example.login.BrandActivity"
         android:label="SplashActivity" >
         <action
             android:id="@+id/action_splashActivity_to_mainActivity"

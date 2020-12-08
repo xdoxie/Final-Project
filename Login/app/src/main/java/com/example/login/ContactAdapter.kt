@@ -39,7 +39,6 @@ class ContactsAdapter(private val mContext: Context) : BaseAdapter()  {
     }
 
 
-
     override fun getItem(position: Int): Any {
         return mContacts[position]
     }

@@ -41,7 +41,7 @@ class ActivityHub : AppCompatActivity() {
 
 
         instructionsButton!!.setOnClickListener {
-            val i = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=qIUb3bjh42Y&ab_channel=LastWeekTonight"))
+            val i = Intent(Intent.ACTION_VIEW, Uri.parse("https://youtu.be/2vRaqw7Mc1Q"))
                     startActivity(i)
         }
 

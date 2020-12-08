@@ -11,9 +11,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="232dp"
-        android:layout_marginLeft="232dp"
-        android:layout_marginTop="6dp"
+
+        android:layout_marginLeft="17dp"
+        android:layout_marginTop="17dp"
         android:textAppearance="?android:attr/textAppearanceLarge"></TextView>
 
     <TextView
@@ -22,8 +22,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="7dp"
-        android:layout_marginTop="9dp"
+        android:layout_marginLeft="217dp"
+        android:layout_marginTop="15dp"
+        android:layout_alignLeft="@+id/nameView"
         android:textAppearance="?android:attr/textAppearanceLarge"></TextView>
 
     <TextView
@@ -54,7 +55,8 @@
         android:layout_height="20dp"
         android:layout_below="@+id/ReminderLabel"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="-17dp"
-        android:layout_marginRight="40dp"></TextView>
+        android:layout_marginTop="-22dp"
+        android:layout_alignRight="@+id/ReminderLabel"
+        android:layout_marginRight="24dp"></TextView>
 
 </RelativeLayout>

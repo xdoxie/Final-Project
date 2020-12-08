@@ -36,6 +36,7 @@
             android:layout_width="261dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|bottom"
+            android:background="@drawable/round_button"
             android:text="@string/contacts_button_label" />
     </LinearLayout>
 
@@ -52,7 +53,7 @@
             android:layout_width="145dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|center"
-
+            android:background="@drawable/round_button"
             android:text="@string/instructions_button_label" />
 
         <Button
@@ -61,6 +62,7 @@
             android:layout_width="145dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|center"
+            android:background="@drawable/round_button"
             android:text="@string/about_button_label" />
     </LinearLayout>
 

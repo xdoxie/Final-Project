@@ -25,6 +25,7 @@ class ActivityHub : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hub)
         window.decorView.setBackgroundColor(Color.WHITE)
+        //setSupportActionBar(findViewById(R.id.ActivityToolbar))
 
 
         firstTitle = findViewById(R.id.firstTitle);

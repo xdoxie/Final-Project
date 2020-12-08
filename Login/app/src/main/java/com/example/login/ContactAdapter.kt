@@ -100,14 +100,16 @@ class ContactsAdapter(private val mContext: Context) : BaseAdapter()  {
 
         mAlarmManager = mContext.getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
+
+
+
+
         viewHolder.mContactLayout=mContact.inflate(R.layout.contact,parent,false) as RelativeLayout
         viewHolder.mNameView= viewHolder.mContactLayout!!.findViewById(R.id.nameView);
         viewHolder.mLastNameView= viewHolder.mContactLayout!!.findViewById(R.id.lastNameView);
         viewHolder.mPhoneNumberView=viewHolder.mContactLayout!!.findViewById((R.id.numberView))
         viewHolder.mReminderView=viewHolder.mContactLayout!!.findViewById(R.id.reminderView)
 
-<<<<<<< HEAD
-=======
 //        if (contact.reminder==Contact.Reminder.DAILY){
 //            repeat_interval= DAY
 //        }else if (contact.reminder==Contact.Reminder.WEEKLY){
@@ -135,15 +137,11 @@ class ContactsAdapter(private val mContext: Context) : BaseAdapter()  {
 
             viewHolder.mNameView?.text= contact.firstName
             viewHolder.mLastNameView?.text=contact.lastName
->>>>>>> d707081912e646e497cce2f371fdbda5371c62fa
 
             viewHolder.mPhoneNumberView?.text=contact.phoneNumber
 
             viewHolder.mReminderView?.text= contact.reminder.toString()
 
-<<<<<<< HEAD
-        viewHolder.mReminderView?.text= contact.reminder.toString()
-=======
 //        if(convertView!=null){
 //            createNotificationChannel()
 //            val notificationIntent = Intent(
@@ -174,7 +172,6 @@ class ContactsAdapter(private val mContext: Context) : BaseAdapter()  {
 //            )
 
 //        }
->>>>>>> d707081912e646e497cce2f371fdbda5371c62fa
 
         return viewHolder.mContactLayout
     }
